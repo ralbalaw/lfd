@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+    <BehaviorTree ID="FrontendRecordTest">
+        <Sequence name="record_return_and_replay_demo">
+            <RecordServoDemo
+                demonstration="{demo_traj}"
+                sample_dt="0.1"
+                error="{record_demo.error}"
+                feedback="{record_demo.feedback}"
+                elapsed_sec="{record_demo.elapsed_sec}"
+            />
+            <BuildJointEndpoints
+                trajectory="{demo_traj}"
+                joint_endpoints="{return.joint_endpoints}"
+            />
+            <TesseractPlan
+                group_name="fr3_arm"
+                joint_endpoints="{return.joint_endpoints}"
+                path="{return.path}"
+                error="{return.plan_error}"
+                feedback="{return.plan_feedback}"
+                elapsed_sec="{return.plan_elapsed_sec}"
+            />
+            <TimeParameterizeMoveIt
+                path="{return.path}"
+                group_name="fr3_arm"
+                planning_config="trajopt_default"
+                trajectory="{return.trajectory}"
+                error="{return.time_parameterize_error}"
+            />
+            <ExecuteTrajectory
+                trajectory="{return.trajectory}"
+                group_name="fr3_arm"
+                planning_config="trajopt_default"
+                exec_result="{return.exec_result}"
+                error="{return.exec_error}"
+                feedback="{return.exec_feedback}"
+                elapsed_sec="{return.exec_elapsed_sec}"
+            />
+            <ExecuteTrajectory
+                trajectory="{demo_traj}"
+                group_name="fr3_arm"
+                planning_config="trajopt_default"
+                exec_result="{demo.exec_result}"
+                error="{demo.exec_error}"
+                feedback="{demo.exec_feedback}"
+                elapsed_sec="{demo.exec_elapsed_sec}"
+            />
+        </Sequence>
+    </BehaviorTree>
+</root>

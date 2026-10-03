@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+    <BehaviorTree ID="RecordServoDemos">
+        <Sequence name="record_one_demo">
+            <RecordServoDemo
+                demonstration="{demo_traj}"
+                sample_dt="0.1"
+                error="{record_demo.error}"
+                feedback="{record_demo.feedback}"
+                elapsed_sec="{record_demo.elapsed_sec}"
+            />
+            <AppendTrajectory
+                trajectory="{demo_traj}"
+                demonstrations="{demonstrations}"
+                error="{append_demo.error}"
+            />
+        </Sequence>
+    </BehaviorTree>
+</root>

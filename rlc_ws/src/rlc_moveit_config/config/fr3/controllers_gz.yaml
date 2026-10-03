@@ -1,0 +1,28 @@
+# MoveIt simple controller manager configuration for Gazebo Sim.
+#
+# This file is intended to match controller instance names spawned by:
+#   `rlc_bringup/launch/fr3_gz_control.launch.py`
+
+controller_names:
+  - arm_controller
+  - gripper_controller
+
+arm_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - fr3_joint1
+    - fr3_joint2
+    - fr3_joint3
+    - fr3_joint4
+    - fr3_joint5
+    - fr3_joint6
+    - fr3_joint7
+
+gripper_controller:
+  action_ns: gripper_action
+  type: GripperCommand
+  default: true
+  joints:
+    - fr3_finger_joint1

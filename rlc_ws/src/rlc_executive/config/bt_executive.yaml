@@ -1,0 +1,37 @@
+bt_executive:
+  ros__parameters:
+    planning_configs_path: "config/planning_configs.yaml"
+    default_tree: "bt_trees/reactive_core.xml"
+    enable_groot2: false
+    groot2_port: 1667
+
+    behavior_tree:
+      tick:
+        rate_hz: 30.0
+        mode: "ONCE_UNLESS_WOKEN_UP"
+        while_running_max_block_ms: 100
+
+    state:
+      joint_states_topic: "/joint_states"
+      base_frame: "base_link"
+      ee_frame: "tool0"
+      tf_timeout_sec: 0.05
+      state_stale_sec: 0.2
+
+    move_group:
+      action_name: "/move_action"
+      get_planning_scene_service_name: "/get_planning_scene"
+
+    execution:
+      execute_traj_action_name: "/execute_trajectory"
+
+    planning:
+      default_config: "ompl_default"
+
+    demonstration_collection:
+      action_name: "/collect_demonstration"
+
+    monitor:
+      monitor_namespace: "tesseract_monitor"
+      env_name: "default"
+      wait_timeout_ms: 3000

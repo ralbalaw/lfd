@@ -1,0 +1,87 @@
+BasedOnStyle:  Google
+ColumnLimit:    90
+MaxEmptyLinesToKeep: 1
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<((assert|complex|ctype|errno|fenv|float|inttypes|iso646|limits|locale|math|setjmp|signal|stdalign|stdarg|stdatomic|stdbool|stddef|stdint|stdio|stdlib|string|tgmath|time|uchar|wchar|wctype)\.h)>'
+    Priority: 1
+  - Regex: '^<(algorithm|any|array|atomic|barrier|bit|bitset|cassert|cctype|cerrno|cfenv|cfloat|charconv|chrono|cinttypes|ciso646|climits|clocale|cmath|codecvt|compare|complex|concepts|condition_variable|coroutine|csetjmp|csignal|cstdalign|cstdarg|cstdbool|cstddef|cstdint|cstdio|cstdlib|cstring|ctime|cuchar|cwchar|cwctype|deque|exception|execution|expected|filesystem|format|forward_list|fstream|functional|future|initializer_list|iomanip|ios|iosfwd|iostream|istream|iterator|latch|limits|list|locale|map|memory|memory_resource|mutex|new|numbers|numeric|optional|ostream|queue|random|ranges|ratio|regex|scoped_allocator|semaphore|set|shared_mutex|source_location|span|sstream|stack|stdexcept|stdfloat|stop_token|streambuf|string|string_view|strstream|syncstream|system_error|thread|tuple|type_traits|typeindex|typeinfo|unordered_map|unordered_set|utility|valarray|variant|vector|version)>$'
+    Priority: 2
+  - Regex: '^<.*>'
+    Priority: 3
+  - Regex: '.*'
+    Priority: 4
+
+Standard:        Auto
+IndentWidth:     2
+TabWidth:        2
+UseTab:          Never
+AccessModifierOffset: -2
+ConstructorInitializerIndentWidth: 2
+NamespaceIndentation: None
+ContinuationIndentWidth: 4
+IndentCaseLabels: true
+IndentFunctionDeclarationAfterType: false
+
+AlignEscapedNewlinesLeft: false
+AlignTrailingComments: true
+
+AllowAllParametersOfDeclarationOnNextLine: false
+ExperimentalAutoDetectBinPacking: false
+ObjCSpaceBeforeProtocolList: true
+Cpp11BracedListStyle: false
+
+AllowShortBlocksOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortCaseLabelsOnASingleLine: false
+
+AlwaysBreakTemplateDeclarations: true
+AlwaysBreakBeforeMultilineStrings: false
+BreakBeforeBinaryOperators: false
+BreakBeforeTernaryOperators: false
+BreakConstructorInitializersBeforeComma: true
+
+BinPackParameters: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+DerivePointerBinding: false
+PointerBindsToType: true
+
+PenaltyExcessCharacter: 50
+PenaltyBreakBeforeFirstCallParameter: 30
+PenaltyBreakComment: 1000
+PenaltyBreakFirstLessLess: 10
+PenaltyBreakString: 100
+PenaltyReturnTypeOnItsOwnLine: 50
+
+SpacesBeforeTrailingComments: 2
+SpacesInParentheses: false
+SpacesInAngles:  false
+SpaceInEmptyParentheses: false
+SpacesInCStyleCastParentheses: false
+SpaceAfterCStyleCast: false
+SpaceAfterControlStatementKeyword: true
+SpaceBeforeAssignmentOperators: true
+
+# Configure each individual brace in BraceWrapping
+BreakBeforeBraces: Custom
+
+# Qualifiers (const, volatile, static, etc)
+QualifierAlignment: Custom
+QualifierOrder: ['static', 'inline', 'constexpr', 'const', 'volatile', 'type']
+
+# Control of individual brace wrapping cases
+BraceWrapping:
+    AfterCaseLabel: true
+    AfterClass: true
+    AfterControlStatement: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeElse: true
+    IndentBraces: false

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rbt_planning</name>
+  <version>0.1.0</version>
+  <description>Standalone C++ motion planning utilities using TrajOpt and Tesseract.</description>
+  <maintainer email="asme.kfupm.website@gmail.com">g201951870</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <depend>eigen</depend>
+  <depend>boost</depend>
+  <depend>tesseract_environment</depend>
+  <depend>trajopt</depend>
+  <depend>ompl</depend>
+  <depend>rbt_types</depend>
+
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

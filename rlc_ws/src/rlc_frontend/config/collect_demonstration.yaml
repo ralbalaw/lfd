@@ -1,0 +1,34 @@
+collect_demonstration_server:
+  ros__parameters:
+    action_name: "/collect_demonstration"
+    joint_states_topic: "/joint_states"
+    state_stale_sec: 0.2
+
+    teleoperation:
+      frontend: "joy"
+      servo:
+        pause_service_name: "/servo_node/pause_servo"
+        switch_command_type_service_name: "/servo_node/switch_command_type"
+        status_topic: "/servo_node/status"
+      joy:
+        joy_topic: "/joy"
+        twist_topic: "/servo_node/delta_twist_cmds"
+        joint_topic: "/servo_node/delta_joint_cmds"
+        pose_topic: "/servo_node/pose_target_cmds"
+        command_frame: "fr3_hand_tcp"
+        deadzone: 0.10
+        linear_scale: 0.25
+        angular_scale: 0.75
+        axis_linear:
+          x: LEFTY
+          y: LEFTX
+          z_pos: TRIGGERRIGHT
+          z_neg: TRIGGERLEFT
+        axis_angular:
+          x: RIGHTY
+          y: RIGHTX
+          z_pos: RIGHTSHOULDER
+          z_neg: LEFTSHOULDER
+        buttons:
+          finish: START
+          abort: BACK

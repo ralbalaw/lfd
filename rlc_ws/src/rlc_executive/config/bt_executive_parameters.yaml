@@ -1,0 +1,187 @@
+rlc_executive:
+  planning_configs_path: {
+    type: string,
+    read_only: true,
+    default_value: "config/planning_configs.yaml",
+    description: "Path to planning_configs.yaml. Relative paths resolve against the rlc_executive package share directory.",
+    validation: {
+      not_empty<>: null
+    }
+  }
+
+  default_tree: {
+    type: string,
+    read_only: true,
+    default_value: "bt_trees/reactive_core.xml",
+    description: "Path to the BehaviorTree XML file. Relative paths resolve against the rlc_executive package share directory.",
+    validation: {
+      not_empty<>: null
+    }
+  }
+
+  enable_groot2: {
+    type: bool,
+    default_value: false,
+    description: "Enable the BehaviorTree.CPP Groot2 publisher."
+  }
+
+  groot2_port: {
+    type: int,
+    default_value: 1667,
+    description: "TCP port used by the Groot2 publisher.",
+    validation: {
+      bounds<>: [1, 65535]
+    }
+  }
+
+  behavior_tree:
+    tick:
+      rate_hz: {
+        type: double,
+        default_value: 30.0,
+        description: "BehaviorTree tick rate [Hz].",
+        validation: {
+          gt<>: 0.0
+        }
+      }
+
+      mode: {
+        type: string,
+        default_value: "ONCE_UNLESS_WOKEN_UP",
+        description: "BehaviorTree.CPP tick method used by TreeRunner.",
+        validation: {
+          one_of<>: [["ONCE_UNLESS_WOKEN_UP", "WHILE_RUNNING", "EXACTLY_ONCE"]]
+        }
+      }
+
+      while_running_max_block_ms: {
+        type: int,
+        default_value: 100,
+        description: "Maximum blocking time [ms] used when tick mode is WHILE_RUNNING.",
+        validation: {
+          gt_eq<>: 0
+        }
+      }
+
+  state:
+    joint_states_topic: {
+      type: string,
+      default_value: "/joint_states",
+      description: "JointState topic used by the executive state monitor.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    base_frame: {
+      type: string,
+      default_value: "base_link",
+      description: "Robot base frame used by state-aware BT nodes.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    ee_frame: {
+      type: string,
+      default_value: "tool0",
+      description: "End-effector frame used by state-aware BT nodes.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    tf_timeout_sec: {
+      type: double,
+      default_value: 0.05,
+      description: "TF lookup timeout [s].",
+      validation: {
+        gt_eq<>: 0.0
+      }
+    }
+
+    state_stale_sec: {
+      type: double,
+      default_value: 0.2,
+      description: "Maximum accepted joint-state age [s].",
+      validation: {
+        gt_eq<>: 0.0
+      }
+    }
+
+  move_group:
+    action_name: {
+      type: string,
+      default_value: "/move_action",
+      description: "MoveGroup action endpoint used by MoveItPlan.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    get_planning_scene_service_name: {
+      type: string,
+      default_value: "/get_planning_scene",
+      description: "MoveIt planning-scene service endpoint reserved for scene queries.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+  execution:
+    execute_traj_action_name: {
+      type: string,
+      default_value: "/execute_trajectory",
+      description: "Trajectory execution action endpoint.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+  planning:
+    default_config: {
+      type: string,
+      default_value: "ompl_default",
+      description: "Default planning config name loaded from planning_configs.yaml.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+  demonstration_collection:
+    action_name: {
+      type: string,
+      default_value: "/collect_demonstration",
+      description: "Demonstration collection action endpoint used by RecordServoDemo.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+  monitor:
+    monitor_namespace: {
+      type: string,
+      default_value: "tesseract_monitor",
+      description: "ROS namespace hosting Tesseract monitor endpoints.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    env_name: {
+      type: string,
+      default_value: "default",
+      description: "Tesseract environment name used by the monitor interface.",
+      validation: {
+        not_empty<>: null
+      }
+    }
+
+    wait_timeout_ms: {
+      type: int,
+      default_value: 3000,
+      description: "Maximum wait time [ms] for the monitor interface to become ready.",
+      validation: {
+        gt_eq<>: 0
+      }
+    }

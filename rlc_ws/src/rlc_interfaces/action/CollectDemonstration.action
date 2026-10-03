@@ -1,0 +1,10 @@
+float64 sample_dt
+---
+moveit_msgs/RobotTrajectory demonstration
+string error
+float64 elapsed_sec
+uint32 sample_count
+---
+string feedback
+float64 elapsed_sec
+uint32 sample_count

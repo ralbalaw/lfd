@@ -1,0 +1,9 @@
+string group_name
+moveit_msgs/RobotTrajectory path
+sensor_msgs/JointState reference_joint_state
+float64 max_velocity_scaling_factor
+float64 max_acceleration_scaling_factor
+---
+bool success
+moveit_msgs/RobotTrajectory trajectory
+string error

@@ -1,0 +1,111 @@
+Checks: >
+  '-*,
+  bugprone-*,
+  -bugprone-unused-return-value,
+  clang-analyzer-*,
+  -bugprone-easily-swappable-parameters,
+  performance-*,
+  -performance-enum-size,
+  llvm-namespace-comment,
+  modernize-redundant-void-arg,
+  modernize-use-nullptr,
+  modernize-use-default,
+  modernize-use-override,
+  modernize-loop-convert,
+  modernize-make-shared,
+  modernize-make-unique,
+  modernize-avoid-bind,
+  misc-unused-parameters,
+  readability-braces-around-statements,
+  readability-named-parameter,
+  readability-redundant-smartptr-get,
+  readability-redundant-string-cstr,
+  readability-simplify-boolean-expr,
+  readability-container-size-empty,
+  readability-identifier-naming,
+  readability-static-definition-in-anonymous-namespace,
+  '
+HeaderFilterRegex: ''
+CheckOptions:
+  - key: llvm-namespace-comment.ShortNamespaceLines
+    value: '10'
+  - key: llvm-namespace-comment.SpacesBeforeComments
+    value: '2'
+  - key: misc-unused-parameters.StrictMode
+    value: '1'
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: '2'
+
+  # Type names
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.UnionCase
+    value: CamelCase
+  - key: readability-identifier-naming.TypeAliasCase
+    value: CamelCase
+  - key: readability-identifier-naming.TypedefCase
+    value: CamelCase
+  - key: readability-identifier-naming.TypeTemplateParameterCase
+    value: CamelCase
+
+  # Namespaces
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+
+  # Variables
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.GlobalVariablePrefix
+    value: 'g_'
+
+  # Function names
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+
+  # Method names
+  - key: readability-identifier-naming.MethodCase
+    value: camelBack
+
+  # Class members
+  - key: readability-identifier-naming.StructMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassMemberSuffix
+    value: '_'
+
+  # Enum values
+  - key: readability-identifier-naming.EnumConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumConstantPrefix
+    value: 'k'
+  - key: readability-identifier-naming.ScopedEnumConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.ScopedEnumConstantPrefix
+    value: 'k'
+
+  # Constants
+  - key: readability-identifier-naming.ConstantCase
+    value: CamelCase
+  - key: readability-identifier-naming.ConstantPrefix
+    value: 'k'
+  - key: readability-identifier-naming.LocalConstantCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalConstantPrefix
+    value: ''
+  - key: readability-identifier-naming.ConstantParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.ConstantParameterPrefix
+    value: ''
+  - key: readability-identifier-naming.ConstexprVariableCase
+    value: CamelCase
+  - key: readability-identifier-naming.ConstexprVariablePrefix
+    value: 'k'
+
+  # Macros
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE

@@ -1,0 +1,11 @@
+<library path="rlc_planner_plugin">
+  <class
+    name="rlc_planner/TrajOptPlannerManager"
+    type="rlc_planner::TrajOptPlannerManager"
+    base_class_type="planning_interface::PlannerManager">
+    <description>
+      TrajOpt-based MoveIt planner plugin.
+    </description>
+  </class>
+</library>
+

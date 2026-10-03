@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rlc_frontend</name>
+  <version>0.0.0</version>
+  <description>Frontend-driven demonstration collection services for RLC.</description>
+  <maintainer email="193288475+hasan-fahad1@users.noreply.github.com">Hasan Al Thobaiti</maintainer>
+  <maintainer email="252933012+alb-rashed@users.noreply.github.com">Rashed Albalawi</maintainer>
+  <license>Apache-2.0</license>
+  <!-- See repo root LICENSE and NOTICE for terms and attribution. -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>control_msgs</depend>
+  <depend>generate_parameter_library</depend>
+  <depend>geometry_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rlc_interfaces</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

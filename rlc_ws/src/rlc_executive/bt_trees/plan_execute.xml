@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+
+    <BehaviorTree ID="PlanExecute">
+        <Sequence name="plan_then_execute">
+            <LoadPose
+                frame_id="base_link"
+                position="0.5;0.0;0.4"
+                orientation_xyzw="0.0;0.0;0.0;1.0"
+                target_pose="{target_pose}"
+            />
+            <BuildMotionPlanRequest
+                target_pose="{target_pose}"
+                link_name="fr3_link8"
+                group_name="fr3_arm"
+                request="{plan.request}"
+                error="{motion_plan.error}"
+            />
+            <TesseractPlan
+                group_name="{plan.request}"
+                reward_terms="trajopt_default"
+                joint_endpoints="{joint_endpoints}"
+                path="{plan.path}"
+                plan_result="{plan.plan_result}"
+            />
+            <TimeParameterizeMoveIt
+                path="{plan.path}"
+                group_name="fr3_arm"
+                planning_config="trajopt_default"
+                trajectory="{plan.trajectory}"
+                error="{plan.time_parameterize_error}"
+            />
+            <ExecuteTrajectory
+                trajectory="{plan.trajectory}"
+                planning_config="trajopt_default"
+                exec_result="{plan.exec_result}"
+                error="{plan.exec_error}"
+                feedback="{plan.exec_feedback}"
+                elapsed_sec="{plan.exec_elapsed_sec}"
+            />
+        </Sequence>
+    </BehaviorTree>
+
+</root>

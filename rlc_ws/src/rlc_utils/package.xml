@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>rlc_utils</name>
+  <version>0.0.0</version>
+  <description>Shared ROS 2 utilities and message conversions for the RLC stack.</description>
+
+  <maintainer email="193288475+hasan-fahad1@users.noreply.github.com">Hasan Al Thobaiti</maintainer>
+  <maintainer email="252933012+alb-rashed@users.noreply.github.com">Rashed Albalawi</maintainer>
+  <license>Apache-2.0</license>
+  <!-- See repo root LICENSE and NOTICE for terms and attribution. -->
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <!-- C++ dependencies -->
+  <depend>rclcpp</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>control_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>eigen</depend>
+  <depend>tesseract_monitoring</depend>
+
+  <!-- Python dependencies -->
+  <exec_depend>python3-numpy</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

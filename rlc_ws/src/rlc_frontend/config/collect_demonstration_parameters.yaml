@@ -1,0 +1,181 @@
+rlc_frontend:
+  action_name: {
+    type: string,
+    read_only: true,
+    default_value: "/collect_demonstration",
+    description: "Demonstration collection action endpoint."
+  }
+
+  joint_states_topic: {
+    type: string,
+    read_only: true,
+    default_value: "/joint_states",
+    description: "JointState topic sampled by the collection server."
+  }
+
+  state_stale_sec: {
+    type: double,
+    read_only: true,
+    default_value: 0.2,
+    description: "Maximum accepted joint-state age [s]."
+  }
+
+  teleoperation:
+    frontend: {
+      type: string,
+      read_only: true,
+      default_value: "joy",
+      description: "Operator-input frontend selected by the teleoperation controller."
+    }
+
+    servo:
+      pause_service_name: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/pause_servo",
+        description: "MoveIt Servo pause service endpoint."
+      }
+
+      switch_command_type_service_name: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/switch_command_type",
+        description: "MoveIt Servo command-type service endpoint."
+      }
+
+      status_topic: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/status",
+        description: "MoveIt Servo status topic."
+      }
+
+    joy:
+      joy_topic: {
+        type: string,
+        read_only: true,
+        default_value: "/joy",
+        description: "Joystick input topic."
+      }
+
+      twist_topic: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/delta_twist_cmds",
+        description: "Servo twist-command topic."
+      }
+
+      joint_topic: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/delta_joint_cmds",
+        description: "Servo joint-jog command topic."
+      }
+
+      pose_topic: {
+        type: string,
+        read_only: true,
+        default_value: "/servo_node/pose_target_cmds",
+        description: "Servo pose-command topic."
+      }
+
+      command_frame: {
+        type: string,
+        read_only: true,
+        default_value: "fr3_hand_tcp",
+        description: "Frame id attached to outgoing Servo commands."
+      }
+
+      deadzone: {
+        type: double,
+        read_only: true,
+        default_value: 0.10,
+        description: "Joystick axis deadzone."
+      }
+
+      linear_scale: {
+        type: double,
+        read_only: true,
+        default_value: 0.25,
+        description: "Linear twist scale."
+      }
+
+      angular_scale: {
+        type: double,
+        read_only: true,
+        default_value: 0.75,
+        description: "Angular twist scale."
+      }
+
+      axis_linear:
+        x: {
+          type: string,
+          read_only: true,
+          default_value: "LEFTY",
+          description: "Linear X joystick axis token."
+        }
+
+        y: {
+          type: string,
+          read_only: true,
+          default_value: "LEFTX",
+          description: "Linear Y joystick axis token."
+        }
+
+        z_pos: {
+          type: string,
+          read_only: true,
+          default_value: "TRIGGERRIGHT",
+          description: "Positive linear Z joystick axis token."
+        }
+
+        z_neg: {
+          type: string,
+          read_only: true,
+          default_value: "TRIGGERLEFT",
+          description: "Negative linear Z joystick axis token."
+        }
+
+      axis_angular:
+        x: {
+          type: string,
+          read_only: true,
+          default_value: "RIGHTY",
+          description: "Angular X joystick axis token."
+        }
+
+        y: {
+          type: string,
+          read_only: true,
+          default_value: "RIGHTX",
+          description: "Angular Y joystick axis token."
+        }
+
+        z_pos: {
+          type: string,
+          read_only: true,
+          default_value: "RIGHTSHOULDER",
+          description: "Positive angular Z joystick button token."
+        }
+
+        z_neg: {
+          type: string,
+          read_only: true,
+          default_value: "LEFTSHOULDER",
+          description: "Negative angular Z joystick button token."
+        }
+
+      buttons:
+        finish: {
+          type: string,
+          read_only: true,
+          default_value: "START",
+          description: "Finish request joystick button token."
+        }
+
+        abort: {
+          type: string,
+          read_only: true,
+          default_value: "BACK",
+          description: "Abort request joystick button token."
+        }

@@ -1,0 +1,17 @@
+rlc_scene_bridge:
+  ros__parameters:
+    scene_bridge.monitor_namespace: "tesseract_monitor"
+    scene_bridge.env_name: "fr3"
+    scene_bridge.scene_topic: "/monitored_planning_scene"
+    scene_bridge.get_scene_srv: "/get_planning_scene"
+    # moveit_msgs/msg/PlanningSceneComponents bitmask.
+    # Set to -1 to use the package default.
+    scene_bridge.scene_components: -1
+    scene_bridge.srv_wait_ms: 500
+    scene_bridge.scene_qos_depth: 25
+    scene_bridge.monitor_wait_ms: 3000
+    scene_bridge.resync_period_ms: 1000
+
+    scene_bridge.env_sync.allow_replace: true
+    scene_bridge.env_sync.naming_policy.world_link_prefix: "w_"
+    scene_bridge.env_sync.naming_policy.attached_link_prefix: "a_"
